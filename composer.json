@@ -17,7 +17,7 @@
   },
   "autoload": {
     "files": [
-      "app/dotenv.php"
+      "src/autoload.php"
     ]
   },
   "extra": {
