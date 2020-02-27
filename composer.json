@@ -1,0 +1,31 @@
+{
+  "name": "zepgram/magento-dotenv",
+  "description": "Simple autoloader to integrate the Symfony Dotenv component for magento2",
+  "keywords": ["magento2", "environment", "env", "dotenv"],
+  "type": "magento2-component",
+  "version": "0.0.1",
+  "authors":[
+    {
+      "name": "Benjamin Calef",
+      "email": "zepgram@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.0",
+    "symfony/dotenv": "^4.4.0|^5.0.0"
+  },
+  "autoload": {
+    "files": [
+      "app/dotenv.php"
+    ]
+  },
+  "extra": {
+    "map": [
+      [
+        "src/dist/app/dotenv.php",
+        "app/dotenv.php"
+      ]
+    ]
+  }
+}
