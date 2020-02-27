@@ -1,6 +1,6 @@
 {
   "name": "zepgram/magento-dotenv",
-  "description": "Simple autoloader to integrate the Symfony Dotenv component for magento2",
+  "description": "Simple autoloader to integrate the Symfony Dotenv component into Magento2",
   "keywords": ["magento2", "environment", "env", "dotenv"],
   "type": "magento2-component",
   "version": "0.0.1",
