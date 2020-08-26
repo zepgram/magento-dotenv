@@ -17,15 +17,10 @@
   },
   "autoload": {
     "files": [
-      "src/autoload.php"
-    ]
-  },
-  "extra": {
-    "map": [
-      [
-        "src/dist/app/dotenv.php",
-        "app/dotenv.php"
-      ]
-    ]
+      "autoload.php"
+    ],
+    "psr-4": {
+      "Zepgram\\Component\\MagentoDotenv\\": ""
+    }
   }
 }

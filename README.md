@@ -1,7 +1,7 @@
 # Magento Dotenv
 
 Simple autoloader to integrate Symfony Dotenv component to Magento2.
-The implementation is available under magento root project via ``app/dotenv.php``.
+The implementation can be found under path ``app/dotenv.php`` and can be configured safely for your needs.
 
 # Installation
 
@@ -17,8 +17,7 @@ You can use it similar way as a Symfony project:
 1. If there's a .env.local representing general local environment variables it's loaded now.
 1. If there's a .env.$env.local file, this one is loaded. Otherwise, it falls back to .env.$env.
 
-You can freely edit ``app/dotenv.php``: 
-If an update is necessary for this file, the next release will be a major version to avoid any regression.
+You can freely edit ``app/dotenv.php``: this file will be not updated.
 
 For more information you can follow the documentation:
 https://symfony.com/doc/current/components/dotenv.html
