@@ -3,7 +3,7 @@
   "description": "Simple autoloader to integrate the Symfony Dotenv component into Magento2",
   "keywords": ["magento2", "environment", "env", "dotenv"],
   "type": "magento2-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors":[
     {
       "name": "Benjamin Calef",
