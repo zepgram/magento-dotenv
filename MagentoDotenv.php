@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Zepgram\Component\MagentoDotenv;
 
 use Symfony\Component\Dotenv\Dotenv as SymfonyDotenv;
@@ -26,7 +29,7 @@ class MagentoDotenv
     /**
      * Deploy dotenv files and load dotenv
      */
-    public static function init()
+    public static function init(): void
     {
         if (!file_exists(ROOT_DIRECTORY . self::MAGENTO_BOOTSTRAP_FILE)) {
             return;
@@ -56,7 +59,7 @@ class MagentoDotenv
         bool $usePutEnv = false,
         string $envKey = self::ENV_KEY,
         string $debugKey = self::DEBUG_KEY
-    ) {
+    ): SymfonyDotenv {
         $dotenv = new SymfonyDotenv($envKey, $debugKey);
         $dotenv->usePutEnv($usePutEnv);
         $dotenv->loadEnv(ROOT_DIRECTORY . self::ENV_FILE);

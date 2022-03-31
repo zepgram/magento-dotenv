@@ -3,6 +3,14 @@
 Simple autoloader to integrate Symfony Dotenv component to Magento2.
 The implementation can be found under path ``app/dotenv.php`` and can be configured safely for your needs.
 
+# Compatibility
+
+Dotenv Release | 1.0.x | 2.0.x |
+---- |-------|-------|
+PHP version | ^7.0  | ^8.0  |
+Symfony Release | ^5.0  | ^6.0  |
+
+
 # Installation
 
 ```
