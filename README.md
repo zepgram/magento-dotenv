@@ -5,10 +5,10 @@ The implementation can be found under path ``app/dotenv.php`` and can be configu
 
 # Compatibility
 
-Dotenv Release | 1.0.x | 2.0.x |
----- |-------|-------|
-PHP version | ^7.0  | ^8.0  |
-Symfony Release | ^5.0  | ^6.0  |
+| Magento Dotenv | v1.* | v2.*        |
+|----------------|------|-------------|
+| Symfony Dotenv | ^5.0 | ^5.4 / ^6.0 |  
+| PHP version    | ^7.0 | ^8.0        |
 
 
 # Installation

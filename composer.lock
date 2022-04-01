@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87634f84cc22afcb452618d15314d576",
+    "content-hash": "ab04ddb92c0158f546a1758cb6f7ebd2",
     "packages": [
         {
             "name": "symfony/dotenv",
