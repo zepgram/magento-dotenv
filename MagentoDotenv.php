@@ -31,19 +31,18 @@ class MagentoDotenv
      */
     public static function init(): void
     {
-        if (!file_exists(ROOT_DIRECTORY . self::MAGENTO_BOOTSTRAP_FILE)) {
-            return;
-        }
-
-        $dotenvSrc = ROOT_DIRECTORY . self::SRC_APP_ETC_DOTENV_FILE;
         $dotenvDest = ROOT_DIRECTORY . self::DEST_APP_ETC_DOTENV_FILE;
-        if (!file_exists($dotenvDest)) {
-            copy($dotenvSrc, $dotenvDest);
+        if (\is_file($dotenvDest)) {
+            require_once $dotenvDest;
+            return;
+        } else {
+            $dotenvSrc = ROOT_DIRECTORY . self::SRC_APP_ETC_DOTENV_FILE;
+            \copy($dotenvSrc, $dotenvDest);
         }
 
-        $envFile = ROOT_DIRECTORY . self::ENV_FILE;
-        if (!file_exists($envFile)) {
-            touch($envFile);
+        $magentoBootstrapFile = ROOT_DIRECTORY . self::MAGENTO_BOOTSTRAP_FILE;
+        if (!\is_file($magentoBootstrapFile)) {
+            return;
         }
 
         require_once $dotenvDest;
@@ -53,16 +52,22 @@ class MagentoDotenv
      * @param bool $usePutEnv
      * @param string $envKey
      * @param string $debugKey
+     * @param string $envFilePath
      * @return SymfonyDotenv
      */
     public static function get(
         bool $usePutEnv = false,
         string $envKey = self::ENV_KEY,
-        string $debugKey = self::DEBUG_KEY
+        string $debugKey = self::DEBUG_KEY,
+        string $envFilePath = ''
     ): SymfonyDotenv {
+        if ($envFilePath !== '') {
+            $envFilePath = $envFilePath . DIRECTORY_SEPARATOR;
+        }
+
         $dotenv = new SymfonyDotenv($envKey, $debugKey);
         $dotenv->usePutEnv($usePutEnv);
-        $dotenv->loadEnv(ROOT_DIRECTORY . self::ENV_FILE);
+        $dotenv->loadEnv(ROOT_DIRECTORY . $envFilePath . self::ENV_FILE);
 
         return $dotenv;
     }
