@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Zepgram\Component\MagentoDotenv;
 
 use Symfony\Component\Dotenv\Dotenv as SymfonyDotenv;
+use function copy;
+use function is_file;
+use function touch;
 
 class MagentoDotenv
 {
@@ -32,16 +35,16 @@ class MagentoDotenv
     public static function init(): void
     {
         $dotenvDest = ROOT_DIRECTORY . self::DEST_APP_ETC_DOTENV_FILE;
-        if (\is_file($dotenvDest)) {
+        if (is_file($dotenvDest)) {
             require_once $dotenvDest;
             return;
         } else {
             $dotenvSrc = ROOT_DIRECTORY . self::SRC_APP_ETC_DOTENV_FILE;
-            \copy($dotenvSrc, $dotenvDest);
+            copy($dotenvSrc, $dotenvDest);
         }
 
         $magentoBootstrapFile = ROOT_DIRECTORY . self::MAGENTO_BOOTSTRAP_FILE;
-        if (!\is_file($magentoBootstrapFile)) {
+        if (!is_file($magentoBootstrapFile)) {
             return;
         }
 
@@ -63,6 +66,10 @@ class MagentoDotenv
     ): SymfonyDotenv {
         if ($envFilePath !== '') {
             $envFilePath = $envFilePath . DIRECTORY_SEPARATOR;
+        }
+        $envFile = ROOT_DIRECTORY . $envFilePath . self::ENV_FILE;
+        if (!is_file($envFile)) {
+            touch($envFile);
         }
 
         $dotenv = new SymfonyDotenv($envKey, $debugKey);
