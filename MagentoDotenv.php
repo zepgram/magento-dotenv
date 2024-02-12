@@ -40,7 +40,9 @@ class MagentoDotenv
             return;
         } else {
             $dotenvSrc = ROOT_DIRECTORY . self::SRC_APP_ETC_DOTENV_FILE;
-            copy($dotenvSrc, $dotenvDest);
+            if (is_file($dotenvSrc)) {
+                copy($dotenvSrc, $dotenvDest);
+            }
         }
 
         $magentoBootstrapFile = ROOT_DIRECTORY . self::MAGENTO_BOOTSTRAP_FILE;
